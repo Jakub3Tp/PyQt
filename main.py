@@ -9,7 +9,7 @@ from layout import Ui_Dialog
 class MyForm(QWidget):
     def __init__(self):
         super().__init__()
-        self.ui = Ui_Dialog
+        self.ui = Ui_Dialog()
         self.ui.setupUi(self)
         self.show()
 
