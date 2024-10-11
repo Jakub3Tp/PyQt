@@ -1,4 +1,4 @@
-# Tutorial: pyuic6 nazwa-pliku.ui -o nazwa-pliku.py
+# Tutorial zmieniania plików ui na py: pyuic6 nazwa-pliku.ui -o nazwa-pliku.py
 import sys
 
 from PyQt6.QtWidgets import QWidget, QApplication
@@ -11,7 +11,13 @@ class MyForm(QWidget):
         super().__init__()
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
+        self.ui.okButton.clicked.connect(self.button_click)
         self.show()
+
+    def button_click(self):
+        name = self.ui.nameEdit.text()
+        self.ui.resultLabel.setText(f'Witaj {name}')
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
